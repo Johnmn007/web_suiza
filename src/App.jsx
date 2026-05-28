@@ -1,0 +1,56 @@
+import React, { useState, useEffect } from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Careers from './pages/Careers';
+import Admission from './pages/Admission';
+import AboutUs from './pages/AboutUs';
+import NewsPage from './pages/NewsPage';
+import ContactForm from './components/ContactForm';
+import { translations } from './translations';
+
+function App() {
+  const [lang, setLang] = useState('es');
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Sync theme class with html element
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (darkMode) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [darkMode]);
+
+  const t = translations[lang] || translations['es'];
+
+  return (
+    <Router>
+      <div className="min-h-screen flex flex-col transition-colors duration-300 bg-bg-general dark:bg-dark-bg text-slate-text dark:text-dark-text pb-6">
+        <Navbar lang={lang} setLang={setLang} darkMode={darkMode} setDarkMode={setDarkMode} t={t} />
+        
+        {/* Main Content wrapper */}
+        <main className="flex-1 w-full mt-4">
+          <Routes>
+            <Route path="/" element={<Home t={t} />} />
+            <Route path="/careers" element={<Careers t={t} />} />
+            <Route path="/admission" element={<Admission t={t} />} />
+            <Route path="/about" element={<AboutUs t={t} />} />
+            <Route path="/news" element={<NewsPage t={t} />} />
+            <Route path="/contact" element={
+              <div className="py-12 px-4 flex justify-center items-center">
+                <ContactForm t={t} />
+              </div>
+            } />
+          </Routes>
+        </main>
+
+        <Footer t={t} />
+      </div>
+    </Router>
+  );
+}
+
+export default App;

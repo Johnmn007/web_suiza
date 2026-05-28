@@ -1,0 +1,16 @@
+Basado en la imagen de la interfaz que has proporcionado, aquí tienes los códigos de colores hexadecimales aproximados que conforman la paleta principal:
+
+Azul Principal (Primario): #4B7AF4
+Uso: Fondo de la pantalla de inicio de sesión (izquierda), cabecera superior (centro) y fondo inferior (derecha).
+Azul Claro (Secundario/Acentos): #A0C1F7
+Uso: Iconos en las tarjetas (Asistencia, Tareas, etc.), iconos de carpetas y las barras de progreso.
+Blanco: #FFFFFF
+Uso: Fondos de las tarjetas, campos de texto, botones principales (como el botón "LOGIN") y texto sobre el fondo azul.
+Azul Oscuro / Gris Pizarra (Texto): #3A4B74
+Uso: Texto principal ("Welcome...", "Let's finish your task!", títulos de las tarjetas) y subtítulos.
+Azul Extra Claro (Fondo General): #E5EEFE
+Uso: El color de fondo sobre el que flotan los tres teléfonos.
+Gris Claro (Bordes y elementos inactivos): #F0F4FD
+Uso: El fondo de las barras de progreso incompletas y sombras suaves de las tarjetas.
+Negro / Gris muy oscuro: #1A1D20
+Uso: Detalles de la ilustración (pantalones y cabello del personaje).

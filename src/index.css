@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  
+  --color-primary: #4B7AF4;
+  --color-secondary: #A0C1F7;
+  --color-bg-general: #E5EEFE;
+  --color-slate-text: #3A4B74;
+  --color-slate-light: #F0F4FD;
+  --color-dark-accent: #1A1D20;
+  
+  --color-primary-dark: #3b62c9;
+  --color-dark-bg: #0d1117;
+  --color-dark-card: #161b22;
+  --color-dark-text: #c9d1d9;
+  --color-dark-border: #30363d;
+}
+
+/* Custom Utilities and Animations */
+@layer utilities {
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .glassmorphism-dark {
+    background: rgba(22, 27, 34, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 15px rgba(75, 122, 244, 0.3);
+  }
+
+  .text-glow-dark {
+    text-shadow: 0 0 15px rgba(160, 193, 247, 0.4);
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-general);
+  color: var(--color-slate-text);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Body Override */
+.dark body {
+  background-color: var(--color-dark-bg);
+  color: var(--color-dark-text);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Glowing circles in background */
+.bg-circle-1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(75, 122, 244, 0.15) 0%, rgba(229, 238, 254, 0) 70%);
+  filter: blur(40px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bg-circle-2 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(160, 193, 247, 0.2) 0%, rgba(229, 238, 254, 0) 70%);
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.dark .bg-circle-1 {
+  background: radial-gradient(circle, rgba(75, 122, 244, 0.08) 0%, rgba(13, 17, 23, 0) 70%);
+}
+
+.dark .bg-circle-2 {
+  background: radial-gradient(circle, rgba(160, 193, 247, 0.08) 0%, rgba(13, 17, 23, 0) 70%);
+}
