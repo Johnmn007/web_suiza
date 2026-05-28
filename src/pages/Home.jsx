@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import LogoSuiza from '../assets/img/logo_suiza_n.png';
 import { GraduationCap, ArrowRight, User, Search, Folder, CheckSquare, BookOpen, Library, CheckCircle2, ChevronRight } from 'lucide-react';
 
 export default function Home({ t }) {
@@ -82,8 +83,9 @@ export default function Home({ t }) {
               
               <div className="flex-1 flex flex-col justify-between pt-8 pb-4 px-4 text-white">
                 <div className="flex flex-col items-center gap-1.5 mt-8">
-                  <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/25">
-                    <GraduationCap className="w-7 h-7" />
+                  <div className="w-12 h-12 rounded-[50%]  backdrop-blur-md flex items-center justify-center border border-white/25">
+                    {/* <GraduationCap className="w-7 h-7" /> */}
+                    <img src={LogoSuiza} alt="Logo Suiza" className="w-10 h-10" />
                   </div>
                   <h4 className="text-lg font-bold tracking-tight mt-2">suizaLearning</h4>
                   <span className="text-[9px] tracking-wider text-white/60">Aula Virtual</span>

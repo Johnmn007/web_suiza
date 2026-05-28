@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Sun, Moon, Menu, X, Globe, GraduationCap } from 'lucide-react';
+import LogoSuiza from '../assets/img/logo_suiza_n.png';
 
 export default function Navbar({ lang, setLang, darkMode, setDarkMode, t }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,11 +41,12 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode, t }) {
 
       {/* Main glassmorphism nav bar */}
       <div className="max-w-7xl mx-auto rounded-2xl glassmorphism dark:glassmorphism-dark shadow-[0_8px_32px_0_rgba(75,122,244,0.08)] px-4 py-3 md:px-6 flex justify-between items-center transition-all duration-300">
-        {/* Logo */}
+        
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-secondary text-white shadow-lg shadow-primary/20 group-hover:scale-105 transition-all duration-300">
+          <div className="relative flex items-center justify-center w-20 h-20 rounded-xl  shadow-lg shadow-primary/20 group-hover:scale-105 transition-all duration-300">
             {/* Vanguardist geometric representation of the Swiss gear logo */}
-            <GraduationCap className="w-6 h-6 animate-pulse" />
+            {/* <GraduationCap className="w-6 h-6 animate-pulse" /> */}
+            <img src={LogoSuiza} alt="Logo Suiza" className="w-20 h-20" />
             <div className="absolute -inset-0.5 rounded-xl border border-white/30 animate-ping opacity-25 pointer-events-none"></div>
           </div>
           <div>
