@@ -56,12 +56,15 @@ body {
   color: var(--color-slate-text);
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+  background-image: radial-gradient(rgba(75, 122, 244, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 /* Dark Mode Body Override */
 .dark body {
   background-color: var(--color-dark-bg);
   color: var(--color-dark-text);
+  background-image: radial-gradient(rgba(160, 193, 247, 0.04) 1px, transparent 1px);
 }
 
 /* Custom Scrollbar */
@@ -111,4 +114,104 @@ body {
 
 .dark .bg-circle-2 {
   background: radial-gradient(circle, rgba(160, 193, 247, 0.08) 0%, rgba(13, 17, 23, 0) 70%);
+}
+
+/* Dot pattern background texture */
+.bg-dots {
+  background-image: radial-gradient(rgba(75, 122, 244, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-dots {
+  background-image: radial-gradient(rgba(160, 193, 247, 0.08) 1px, transparent 1px);
+}
+
+/* Subtle grid overlay */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(75, 122, 244, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(75, 122, 244, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.dark .bg-grid {
+  background-image:
+    linear-gradient(rgba(160, 193, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160, 193, 247, 0.03) 1px, transparent 1px);
+}
+
+/* Floating animation for decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 10s ease-in-out 2s infinite;
+}
+
+.animate-float-slow {
+  animation: float 12s ease-in-out 4s infinite;
+}
+
+/* Shimmer card border glow */
+@keyframes shimmer-border {
+  0%, 100% { border-color: rgba(75, 122, 244, 0.1); }
+  50% { border-color: rgba(75, 122, 244, 0.25); }
+}
+
+.animate-shimmer-border {
+  animation: shimmer-border 4s ease-in-out infinite;
+}
+
+/* Gentle pulse for decorative glows */
+@keyframes soft-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 6s ease-in-out infinite;
+}
+
+/* Card slide-up entrance - no JS needed */
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-card-enter {
+  animation: card-enter 0.5s ease-out both;
+}
+
+/* Drift across screen */
+@keyframes drift {
+  0% { transform: translateX(-10%) rotate(-5deg); }
+  50% { transform: translateX(10%) rotate(5deg); }
+  100% { transform: translateX(-10%) rotate(-5deg); }
+}
+
+.animate-drift {
+  animation: drift 20s ease-in-out infinite;
+}
+
+.animate-drift-reverse {
+  animation: drift 25s ease-in-out reverse infinite;
+}
+
+/* Slight shimmer overlay for images */
+@keyframes shimmer-overlay {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
