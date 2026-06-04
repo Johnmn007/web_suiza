@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { GraduationCap, Globe, MapPin, Phone, Mail } from 'lucide-react';
+import FooterParticles from './FooterParticles';
 
 export default function Footer({ t }) {
   return (
-    <footer className="w-full bg-slate-light/60 dark:bg-dark-card/50 border-t border-primary/10 dark:border-dark-border mt-20 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
+    <footer className="relative w-full bg-slate-light/60 dark:bg-dark-card/50 border-t border-primary/10 dark:border-dark-border mt-20 transition-all duration-300 overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
           {/* Section 1: Logo & Vision */}
@@ -134,6 +135,11 @@ export default function Footer({ t }) {
             <a href="#" className="hover:text-primary transition-colors">Aula Virtual</a>
           </div>
         </div>
+      </div>
+      
+      {/* Background Animated Particles at the Bottom */}
+      <div className="absolute inset-x-0 bottom-0 h-44 pointer-events-none z-0 overflow-hidden">
+        <FooterParticles />
       </div>
     </footer>
   );
