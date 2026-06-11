@@ -76,7 +76,7 @@ export default function Home({ t }) {
                 <div className="relative flex flex-col md:flex-row gap-6 md:gap-4 items-center scale-90 sm:scale-100 origin-center transition-all duration-300">
                   
                   {/* Phone 1: Login UI */}
-                  <div className="w-[230px] h-[460px] rounded-[2.5rem] bg-gradient-to-b from-[#4B7AF4] to-[#2b51ba] p-3 shadow-2xl relative shrink-0 border-[6px] border-white/30 flex flex-col justify-between overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-500 delay-100">
+                  {/* <div className="w-[230px] h-[460px] rounded-[2.5rem] bg-gradient-to-b from-[#4B7AF4] to-[#2b51ba] p-3 shadow-2xl relative shrink-0 border-[6px] border-white/30 flex flex-col justify-between overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-500 delay-100">
                     <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-4 bg-white/30 rounded-full z-20"></div>
                     
                     <div className="flex-1 flex flex-col justify-between pt-8 pb-4 px-4 text-white">
@@ -132,10 +132,10 @@ export default function Home({ t }) {
                       )}
                     </div>
                     <div className="w-20 h-1 bg-white/40 rounded-full mx-auto mb-1"></div>
-                  </div>
+                  </div> */}
 
                   {/* Phone 2: Dashboard UI */}
-                  <div className="w-[230px] h-[460px] rounded-[2.5rem] bg-white dark:bg-dark-card p-3 shadow-2xl relative shrink-0 border-[6px] border-white/30 flex flex-col justify-between overflow-hidden md:-translate-y-4 animate-in fade-in slide-in-from-bottom-8 duration-500 delay-200">
+                  {/* <div className="w-[230px] h-[460px] rounded-[2.5rem] bg-white dark:bg-dark-card p-3 shadow-2xl relative shrink-0 border-[6px] border-white/30 flex flex-col justify-between overflow-hidden md:-translate-y-4 animate-in fade-in slide-in-from-bottom-8 duration-500 delay-200">
                     <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-4 bg-slate-text/30 dark:bg-dark-border/80 rounded-full z-20"></div>
                     
                     <div className="flex-1 flex flex-col text-slate-text dark:text-white pt-6 overflow-hidden">
@@ -198,7 +198,7 @@ export default function Home({ t }) {
                   </div>
 
                   {/* Phone 3: Tasks and Progress list */}
-                  <div className="w-[230px] h-[460px] rounded-[2.5rem] bg-white dark:bg-dark-card p-3 shadow-2xl relative shrink-0 border-[6px] border-white/30 flex flex-col justify-between overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-500 delay-300">
+                  {/* <div className="w-[230px] h-[460px] rounded-[2.5rem] bg-white dark:bg-dark-card p-3 shadow-2xl relative shrink-0 border-[6px] border-white/30 flex flex-col justify-between overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-500 delay-300">
                     <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-4 bg-slate-text/30 dark:bg-dark-border/80 rounded-full z-20"></div>
                     
                     <div className="flex-1 flex flex-col text-slate-text dark:text-white pt-6 overflow-hidden">
@@ -246,10 +246,10 @@ export default function Home({ t }) {
                       </div>
                     </div>
                     <div className="w-20 h-1 bg-slate-text/40 dark:bg-dark-border rounded-full mx-auto mb-1"></div>
-                  </div>
+                  </div> */}
 
                 </div>
-              </div>
+              </div> */
             </div>
           </div>
         </Carousel>

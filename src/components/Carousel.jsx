@@ -2,9 +2,9 @@ import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const images = [
-  { src: '/carousel-1.jpg', alt: 'Fondo IESTP Suiza 1' },
-  { src: '/carousel-2.jpg', alt: 'Fondo IESTP Suiza 2' },
-  { src: '/carousel-3.jpg', alt: 'Fondo IESTP Suiza 3' },
+  { src: '/fontis.jpg', alt: 'Fondo IESTP Suiza 1' },
+  { src: '/alumnos_grupo.jpg', alt: 'Fondo IESTP Suiza 2' },
+  { src: '/campus.jpg', alt: 'Fondo IESTP Suiza 3' },
 ];
 
 export default function Carousel({ autoPlayInterval = 5000, children }) {
