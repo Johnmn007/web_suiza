@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const images = [
   { src: '/fontis.jpg', alt: 'Fondo IESTP Suiza 1' },
-  { src: '/alumnos_grupo.jpg', alt: 'Fondo IESTP Suiza 2' },
+  { src: '/frontis_2.jpg', alt: 'Fondo IESTP Suiza 2' },
   { src: '/campus.jpg', alt: 'Fondo IESTP Suiza 3' },
 ];
 
