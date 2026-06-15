@@ -8,6 +8,7 @@ import Admission from './pages/Admission';
 import AboutUs from './pages/AboutUs';
 import NewsPage from './pages/NewsPage';
 import ContactForm from './components/ContactForm';
+import VirtualAssistant from './components/VirtualAssistant';
 import { translations } from './translations';
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
         <Navbar lang={lang} setLang={setLang} darkMode={darkMode} setDarkMode={setDarkMode} t={t} />
         
         {/* Main Content wrapper */}
-        <main className="flex-1 w-full mt-4">
+        <main className="flex-1 w-full pt-16 lg:pt-0 mt-4">
           <Routes>
             <Route path="/" element={<Home t={t} />} />
             <Route path="/careers" element={<Careers t={t} />} />
@@ -53,6 +54,7 @@ function App() {
         </main>
 
         <Footer t={t} />
+        <VirtualAssistant />
       </div>
     </Router>
   );
