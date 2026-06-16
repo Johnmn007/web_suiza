@@ -5,33 +5,18 @@ export default function ContactForm({ t }) {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
     
     setLoading(true);
-    setError('');
-    
-    try {
-      const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-      
-      if (!apiKey) {
-        throw new Error('API key no configurada');
-      }
-
-      // Aquí puedes hacer una llamada real a OpenAI o a tu backend
-      // Por ahora simulamos la respuesta
-      await new Promise(resolve => setTimeout(resolve, 1200));
-      
+    // Simulate API request
+    setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
-    } catch (err) {
-      setError(err.message || 'Error al enviar el mensaje');
-      setLoading(false);
-    }
+    }, 1200);
   };
 
   return (
@@ -65,11 +50,6 @@ export default function ContactForm({ t }) {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          {error && (
-            <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-sm">
-              ⚠️ {error}
-            </div>
-          )}
           <div>
             <label className="block text-xs font-semibold text-slate-text/80 dark:text-dark-text/80 mb-1.5 uppercase tracking-wider">
               {t.contact.nameLabel}

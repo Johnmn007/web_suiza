@@ -1,400 +1,138 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Sun, Moon, Menu, X, Accessibility, ChevronDown } from 'lucide-react';
+import { Sun, Moon, Menu, X, Globe, GraduationCap } from 'lucide-react';
 import LogoSuiza from '../assets/img/logo_suiza_n.png';
-import { useDeviceType } from '../hooks/useDeviceType';
 
-export default function Navbar({ lang, setLang, darkMode, setDarkMode }) {
+export default function Navbar({ lang, setLang, darkMode, setDarkMode, t }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [highContrast, setHighContrast] = useState(false);
   const location = useLocation();
-  const { isLaptop } = useDeviceType();
-  const navRef = useRef(null);
-  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(false);
-
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isOpen && navRef.current && !navRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-      if (showDropdown && navRef.current && !navRef.current.contains(event.target)) {
-        setShowDropdown(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isOpen, showDropdown]);
-
-  // Close drawer and dropdown on path change
-  useEffect(() => {
-    setIsOpen(false);
-    setShowDropdown(false);
-  }, [location.pathname]);
-
-  // Reset mobile submenu when drawer closes
-  useEffect(() => {
-    if (!isOpen) {
-      setMobileSubmenuOpen(false);
-    }
-  }, [isOpen]);
 
   const navLinks = [
-    { path: '/', label: 'Inicio' },
-    { path: '/careers', label: 'Programas de Estudio' },
-    { path: '/about', label: 'Nosotros' },
-    { path: '/news', label: 'Noticias' },
-    { path: '/contact', label: 'Escríbenos' }
+    { path: '/', label: t.nav.home },
+    { path: '/careers', label: t.nav.careers },
+    { path: '/admission', label: t.nav.admission },
+    { path: '/about', label: t.nav.about },
+    { path: '/news', label: t.nav.news },
+    { path: '/contact', label: t.nav.contact }
   ];
 
   const languages = [
     { code: 'es', label: 'ESP' },
     { code: 'en', label: 'ENG' },
-    { code: 'sh', label: 'SMS' }
+    { code: 'sh', label: 'SHB' }
   ];
 
   const isActive = (path) => location.pathname === path;
 
-  // Toggle Accessibility Mode (High Contrast & Font Zoom)
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (highContrast) {
-      root.classList.add('high-contrast');
-      root.style.fontSize = '17px';
-    } else {
-      root.classList.remove('high-contrast');
-      root.style.fontSize = '';
-    }
-  }, [highContrast]);
-
   return (
-    <>
-      {/* Floating Navigation Bar - Top on mobile, Bottom on desktop */}
-      <nav ref={navRef} className="fixed top-4 bottom-auto lg:bottom-6 lg:top-auto left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl transition-all duration-300">
+    <nav className="sticky top-0 z-50 w-full px-4 py-4 md:px-8">
+      {/* Contact info bar above Navbar */}
+      <div className="max-w-7xl mx-auto mb-2 px-4 py-1.5 flex flex-wrap justify-between items-center text-xs border-b border-primary/10 text-slate-text/70 dark:text-dark-text/70">
+        <div className="flex gap-4 items-center">
+          <span>📞 061-280665</span>
+          <span className="hidden sm:inline">✉️ suiza@iestpsuiza.edu.pe</span>
+          <span className="hidden md:inline">📍 Carretera Federico Basadre Km 5.700, Pucallpa</span>
+        </div>
+        <div className="flex items-center gap-2 mt-1 sm:mt-0">
+          <Globe className="w-3.5 h-3.5" />
+          <span>IESTP SUIZA - Ucayali</span>
+        </div>
+      </div>
+
+      {/* Main glassmorphism nav bar */}
+      <div className="max-w-7xl mx-auto rounded-2xl glassmorphism dark:glassmorphism-dark shadow-[0_8px_32px_0_rgba(75,122,244,0.08)] px-4 py-3 md:px-6 flex justify-between items-center transition-all duration-300">
         
-        {/* Main Floating Capsule */}
-        <div className="w-full bg-white dark:bg-dark-card rounded-full shadow-[0_15px_45px_rgba(0,0,0,0.12)] border border-slate-100 dark:border-dark-border/80 px-4 py-2.5 md:px-7 flex justify-between items-center transition-all duration-300">
-          
-          {/* Hamburger Menu (Left on Mobile) */}
-          <div className="flex lg:hidden items-center order-1">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-full bg-slate-50 dark:bg-dark-border/50 text-[#1A202C] dark:text-white transition-all duration-300 cursor-pointer"
-              aria-label="Menu"
-            >
-              {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-            </button>
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="relative flex items-center justify-center w-20 h-20 rounded-xl  shadow-lg shadow-primary/20 group-hover:scale-105 transition-all duration-300">
+            {/* Vanguardist geometric representation of the Swiss gear logo */}
+            {/* <GraduationCap className="w-6 h-6 animate-pulse" /> */}
+            <img src={LogoSuiza} alt="Logo Suiza" className="w-20 h-20" />
+            <div className="absolute -inset-0.5 rounded-xl border border-white/30 animate-ping opacity-25 pointer-events-none"></div>
           </div>
-
-          {/* LEFT: Official Logo with Circular Insignia */}
-          <Link to="/" className="flex items-center gap-2 group shrink-0 order-2 lg:order-none">
-            <div className="relative w-11 h-11 rounded-full bg-slate-50 dark:bg-dark-border/40 p-1 flex items-center justify-center border border-slate-100 dark:border-dark-border/30 overflow-hidden shadow-inner group-hover:scale-105 transition-all duration-300">
-              <img src={LogoSuiza} alt="IESTP Suiza" className="w-9 h-9 object-contain" />
+          <div>
+            <div className="font-bold text-base leading-none text-slate-text dark:text-white tracking-tight group-hover:text-primary transition-colors">
+              IESTP SUIZA
             </div>
-            <div className="hidden sm:flex flex-col text-left">
-              <span className="font-extrabold text-xs tracking-tight text-[#1A202C] dark:text-white leading-none">
-                IESTP SUIZA
-              </span>
-              <span className="text-[9px] text-primary dark:text-secondary font-black tracking-widest mt-0.5 uppercase leading-none">
-                PUCALLPA
-              </span>
+            <div className="text-[10px] text-primary dark:text-secondary font-medium tracking-widest mt-0.5">
+              PUCALLPA
             </div>
-          </Link>
-
-          {/* CENTER: Interactive Links (Desktop Only) */}
-          <div className="hidden lg:flex items-center gap-2">
-            {navLinks.map((link) => {
-              if (link.path === '/about') {
-                return (
-                  <div 
-                    key={link.path}
-                    className="relative"
-                  >
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setShowDropdown(!showDropdown);
-                      }}
-                      className={`px-4.5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all duration-300 flex items-center gap-1 cursor-pointer border border-transparent ${
-                        isActive('/about')
-                          ? 'bg-primary text-white shadow-md shadow-primary/20'
-                          : 'text-slate-600 dark:text-dark-text hover:bg-slate-50 dark:hover:bg-dark-border/50 hover:text-primary'
-                      }`}
-                    >
-                      <span>Nosotros</span>
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${showDropdown ? 'rotate-180' : ''}`} />
-                    </button>
-                     {showDropdown && (
-                      <div className="absolute bottom-10 pb-4 left-1/2 -translate-x-1/2 z-50 animate-in fade-in slide-in-from-bottom-2 duration-300 w-max">
-                        <div className="flex flex-row items-center gap-1 p-2.5 bg-white/75 dark:bg-dark-card/75 backdrop-blur-xl border border-white/40 dark:border-dark-border/40 rounded-[24px] shadow-xl">
-                          <Link
-                            to="/about?tab=institucion"
-                            className={`px-5 py-3 text-[11px] font-extrabold tracking-wider transition-all relative whitespace-nowrap cursor-pointer uppercase ${
-                              isActive('/about') && !location.search.includes('tab=docentes')
-                                ? 'text-primary dark:text-secondary'
-                                : 'text-slate-400 hover:text-primary dark:text-dark-text/60 dark:hover:text-white'
-                            }`}
-                          >
-                            <span>Misión, Visión e Historia</span>
-                            {isActive('/about') && !location.search.includes('tab=docentes') && (
-                              <span className="absolute bottom-0 left-5 right-5 h-[3px] bg-primary dark:bg-secondary rounded-full" />
-                            )}
-                          </Link>
-                          
-                          {/* Divider */}
-                          <div className="w-[1px] h-6 bg-slate-200 dark:bg-dark-border/60 mx-1.5" />
- 
-                          <Link
-                            to="/about?tab=docentes"
-                            className={`px-5 py-3 text-[11px] font-extrabold tracking-wider transition-all relative whitespace-nowrap cursor-pointer uppercase ${
-                              location.search.includes('tab=docentes')
-                                ? 'text-primary dark:text-secondary'
-                                : 'text-slate-400 hover:text-primary dark:text-dark-text/60 dark:hover:text-white'
-                            }`}
-                          >
-                            <span>Plana Docente</span>
-                            {location.search.includes('tab=docentes') && (
-                              <span className="absolute bottom-0 left-5 right-5 h-[3px] bg-primary dark:bg-secondary rounded-full" />
-                            )}
-                          </Link>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              }
-              const active = isActive(link.path);
-              return (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`px-4.5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all duration-300 ${
-                    active
-                      ? 'bg-primary text-white shadow-md shadow-primary/20 hover:scale-[1.02]'
-                      : 'text-slate-600 dark:text-dark-text hover:bg-slate-50 dark:hover:bg-dark-border/50 hover:text-primary dark:hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
           </div>
+        </Link>
 
-          {/* RIGHT: Admission 2026, Selector, Accessibility (Desktop Only) */}
-          <div className="hidden lg:flex items-center gap-3">
-            
-            {/* Admisión 2026 Button */}
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center gap-1.5">
+          {navLinks.map((link) => (
             <Link
-              to="/admission"
-              className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary-dark text-white font-extrabold text-xs rounded-full shadow-md shadow-primary/10 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <span>Admisión</span>
-              <span className="bg-blue-950/45 px-2 py-0.5 rounded-full text-[9px] font-black tracking-wider">
-                2026
-              </span>
-            </Link>
-
-            {/* Language Selector */}
-            <div className="flex bg-slate-50 dark:bg-dark-border/50 p-1 rounded-full border border-slate-100 dark:border-dark-border/30">
-              {languages.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => setLang(l.code)}
-                  className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-wider transition-all duration-300 cursor-pointer ${
-                    lang === l.code
-                      ? 'bg-primary text-white shadow-sm'
-                      : 'text-slate-500 dark:text-dark-text/75 hover:text-primary dark:hover:text-white'
-                  }`}
-                >
-                  {l.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Theme Toggle Button */}
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2.5 rounded-full bg-slate-50 dark:bg-dark-border/50 hover:bg-primary/10 dark:hover:bg-primary/20 text-slate-500 dark:text-dark-text/80 hover:text-primary transition-all duration-300 cursor-pointer border border-slate-100 dark:border-dark-border/30"
-              aria-label="Toggle Theme"
-            >
-              {darkMode ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
-            </button>
-
-            {/* Accessibility Icon */}
-            <button
-              onClick={() => setHighContrast(!highContrast)}
-              className={`p-2.5 rounded-full border transition-all duration-300 cursor-pointer ${
-                highContrast
-                  ? 'bg-amber-500 border-amber-500 text-white shadow-md'
-                  : 'bg-slate-50 dark:bg-dark-border/50 border-slate-100 dark:border-dark-border/30 text-slate-500 dark:text-dark-text/80 hover:text-primary hover:bg-primary/10'
+              key={link.path}
+              to={link.path}
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                isActive(link.path)
+                  ? 'bg-primary text-white shadow-md shadow-primary/20'
+                  : 'text-slate-text dark:text-dark-text hover:bg-slate-light dark:hover:bg-dark-border/50 hover:text-primary dark:hover:text-white'
               }`}
-              title="Ajustes de Accesibilidad (Contraste y Tamaño)"
             >
-              <Accessibility className="w-3.5 h-3.5" />
-            </button>
-
-            {/* Device Type Indicator Badge */}
-            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 dark:bg-dark-border/50 border border-slate-100 dark:border-dark-border/30 rounded-full text-[10px] font-extrabold tracking-wide text-slate-500 dark:text-dark-text/80 shadow-inner select-none">
-              {isLaptop ? (
-                <>
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                  <span>💻 Laptop</span>
-                </>
-              ) : (
-                <>
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
-                  <span>📱 Celular</span>
-                </>
-              )}
-            </div>
-
-          </div>
-
-          {/* MOBILE CONTROLS (Right on Mobile) */}
-          <div className="flex lg:hidden items-center gap-2 order-3">
-            
-            {/* Mobile Device Indicator Badge */}
-            <div className="flex items-center gap-1 px-2.5 py-1 bg-primary/10 border border-primary/25 rounded-full text-[9px] font-extrabold text-primary dark:text-secondary shadow-inner select-none mr-1">
-              <span>📱 Celular</span>
-            </div>
-
-            {/* Quick Admisión 2026 Button for Mobile */}
-            <Link
-              to="/admission"
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white font-extrabold text-[10px] rounded-full shadow-sm"
-            >
-              <span>Admisión</span>
-              <span className="bg-blue-950/45 px-1.5 py-0.2 rounded-full text-[8px] font-black">
-                2026
-              </span>
+              {link.label}
             </Link>
-          </div>
-
+          ))}
         </div>
 
-        {/* MOBILE OVERLAY DRAWER: Floats directly below the bar on mobile, above on desktop */}
-        {isOpen && (
-          <div className="absolute top-16 lg:bottom-16 lg:top-auto left-0 right-0 z-40 bg-white/95 dark:bg-dark-card/95 backdrop-blur-md rounded-3xl shadow-2xl border border-slate-100 dark:border-dark-border/80 p-5 flex flex-col gap-4 animate-in fade-in slide-in-from-top-5 lg:slide-in-from-bottom-5 duration-300">
-            
-            {/* Nav Links */}
-            <div className="flex flex-col gap-1.5">
-              {navLinks.map((link) => {
-                if (link.path === '/about') {
-                  return (
-                    <div key={link.path} className="flex flex-col">
-                      <button
-                        onClick={() => setMobileSubmenuOpen(!mobileSubmenuOpen)}
-                        className={`px-5 py-2.5 rounded-2xl text-sm font-bold text-left transition-all duration-300 flex justify-between items-center cursor-pointer ${
-                          isActive('/about')
-                            ? 'bg-primary/10 text-primary dark:text-secondary font-black'
-                            : 'text-slate-600 dark:text-dark-text hover:bg-slate-50 dark:hover:bg-dark-border/50 hover:text-primary'
-                        }`}
-                      >
-                        <span>Nosotros</span>
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileSubmenuOpen ? 'rotate-180 text-primary' : 'text-slate-400'}`} />
-                      </button>
-                      
-                      {mobileSubmenuOpen && (
-                        <div className="flex flex-col gap-1 mt-1.5 p-1.5 rounded-2xl bg-primary/5 dark:bg-white/5 border border-primary/10 dark:border-white/15 animate-in fade-in slide-in-from-top-2 duration-200">
-                          <Link
-                            to="/about?tab=institucion"
-                            onClick={() => setIsOpen(false)}
-                            className={`px-5 py-2 rounded-xl text-xs font-bold text-left transition-all duration-300 ${
-                              isActive('/about') && !location.search.includes('tab=docentes')
-                                ? 'bg-primary text-white shadow-sm'
-                                : 'text-slate-600 dark:text-dark-text hover:bg-slate-50 dark:hover:bg-dark-border/50 hover:text-primary'
-                            }`}
-                          >
-                            Quiénes Somos
-                          </Link>
-                          <Link
-                            to="/about?tab=docentes"
-                            onClick={() => setIsOpen(false)}
-                            className={`px-5 py-2 rounded-xl text-xs font-bold text-left transition-all duration-300 ${
-                              location.search.includes('tab=docentes')
-                                ? 'bg-primary text-white shadow-sm'
-                                : 'text-slate-600 dark:text-dark-text hover:bg-slate-50 dark:hover:bg-dark-border/50 hover:text-primary'
-                            }`}
-                          >
-                            Plana Docente
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-                  );
-                }
-                const active = isActive(link.path);
-                return (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`px-5 py-2.5 rounded-2xl text-sm font-bold text-left transition-all duration-300 ${
-                      active
-                        ? 'bg-primary text-white shadow-md'
-                        : 'text-slate-600 dark:text-dark-text hover:bg-slate-50 dark:hover:bg-dark-border/50 hover:text-primary'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </div>
-
-            <hr className="border-slate-100 dark:border-dark-border/50" />
-
-            {/* Mobile Controls Row */}
-            <div className="flex justify-between items-center px-2">
-              {/* Language Selector */}
-              <div className="flex bg-slate-50 dark:bg-dark-border/50 p-1 rounded-full border border-slate-100 dark:border-dark-border/30">
-                {languages.map((l) => (
-                  <button
-                    key={l.code}
-                    onClick={() => {
-                      setLang(l.code);
-                      setIsOpen(false);
-                    }}
-                    className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-wider transition-all duration-300 ${
-                      lang === l.code
-                        ? 'bg-primary text-white shadow-sm'
-                        : 'text-slate-500 dark:text-dark-text/75'
-                    }`}
-                  >
-                    {l.label}
-                  </button>
-                ))}
-              </div>
-
-              {/* Theme & Accessibility Row */}
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setDarkMode(!darkMode)}
-                  className="p-2.5 rounded-full bg-slate-50 dark:bg-dark-border/50 text-slate-500 dark:text-dark-text border border-slate-100 dark:border-dark-border/30"
-                >
-                  {darkMode ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
-                </button>
-                
-                <button
-                  onClick={() => {
-                    setHighContrast(!highContrast);
-                    setIsOpen(false);
-                  }}
-                  className={`p-2.5 rounded-full border transition-all duration-300 ${
-                    highContrast
-                      ? 'bg-amber-500 border-amber-500 text-white'
-                      : 'bg-slate-50 dark:bg-dark-border/50 border-slate-100 dark:border-dark-border/30 text-slate-500 dark:text-dark-text'
-                  }`}
-                >
-                  <Accessibility className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-
+        {/* Action Controls (Lang, Dark Mode, Mobile Menu Button) */}
+        <div className="flex items-center gap-3">
+          {/* Language Selector Segmented Control */}
+          <div className="flex bg-slate-light dark:bg-dark-border/50 p-1 rounded-xl">
+            {languages.map((l) => (
+              <button
+                key={l.code}
+                onClick={() => setLang(l.code)}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold tracking-wider transition-all duration-300 ${
+                  lang === l.code
+                    ? 'bg-primary text-white shadow-sm'
+                    : 'text-slate-text/70 dark:text-dark-text/70 hover:text-primary dark:hover:text-white'
+                }`}
+              >
+                {l.label}
+              </button>
+            ))}
           </div>
-        )}
 
-      </nav>
-    </>
+          {/* Theme Toggle Button */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-2.5 rounded-xl bg-slate-light dark:bg-dark-border/50 hover:bg-primary/10 dark:hover:bg-primary/20 text-slate-text dark:text-dark-text hover:text-primary dark:hover:text-secondary transition-all duration-300 cursor-pointer"
+            aria-label="Toggle Theme"
+          >
+            {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+
+          {/* Mobile Menu Toggle Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2.5 rounded-xl bg-slate-light dark:bg-dark-border/50 hover:bg-primary/10 dark:hover:bg-primary/20 text-slate-text dark:text-dark-text transition-all duration-300 cursor-pointer"
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      {isOpen && (
+        <div className="lg:hidden absolute top-28 left-4 right-4 z-50 rounded-2xl glassmorphism dark:glassmorphism-dark shadow-2xl p-4 flex flex-col gap-2 border border-white/20 animate-in fade-in slide-in-from-top-4 duration-300">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              onClick={() => setIsOpen(false)}
+              className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                isActive(link.path)
+                  ? 'bg-primary text-white shadow-md shadow-primary/25'
+                  : 'text-slate-text dark:text-dark-text hover:bg-slate-light dark:hover:bg-dark-border/50 hover:text-primary dark:hover:text-white'
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </nav>
   );
 }

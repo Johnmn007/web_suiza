@@ -133,40 +133,26 @@ export const translations = {
     },
     news: {
       title: "Noticias y Eventos Institucionales",
-      subtitle: "Entérate de las últimas actividades, avances de infraestructura y novedades de nuestra institución.",
+      subtitle: "Entérate de las últimas actividades, logros académicos y publicaciones de nuestra institución.",
       readMore: "Leer Artículo",
       items: [
         {
-          tag: "Licitación",
-          title: "Convocan a licitación pública el nuevo local del IESTP Suiza por más de S/ 201 millones",
-          desc: "El Gobierno Regional de Ucayali convocó a licitación la construcción de nuestra nueva sede tecnológica, convirtiéndose en la inversión en educación superior más grande en la historia de la región.",
-          date: "21 de Octubre de 2022",
-          image: "https://cdn.www.gob.pe/uploads/document/file/3782458/standard_5.png.png",
-          link: "https://www.gob.pe/institucion/regionucayali/noticias/662991-convocan-a-licitacion-publica-nuevo-instituto-tecnologico-suiza-por-mas-de-200-millones-de-soles"
+          tag: "Revista Científica",
+          title: "Revista Latinoamericana de Innovación Tecnológica (RELITES) - Vol. 1 2026",
+          desc: "Publicación de investigaciones científicas lideradas por docentes y estudiantes del IESTP Suiza en inteligencia artificial aplicada a la agricultura y mecatrónica.",
+          date: "Mayo 2026"
         },
         {
-          tag: "Infraestructura",
-          title: "Nueva infraestructura del Suiza contará con 22 módulos modernos y laboratorios",
-          desc: "El diseño contempla laboratorios especializados de alta tecnología para Construcción Civil, Mecánica Automotriz, Electrotecnia, Recursos Forestales y Agropecuaria, consolidándonos como un Instituto de Excelencia.",
-          date: "21 de Octubre de 2022",
-          image: "https://cdn.www.gob.pe/uploads/document/file/3782459/7.png.png",
-          link: "https://www.gob.pe/institucion/regionucayali/noticias/662991-convocan-a-licitacion-publica-nuevo-instituto-tecnologico-suiza-por-mas-de-200-millones-de-soles"
+          tag: "Admisión 2026",
+          title: "Resultados Oficiales del Examen de Admisión Regular 2026",
+          desc: "Ya se encuentra disponible la lista de nuevos ingresantes que formarán parte de la excelencia académica de nuestro instituto. ¡Felicitaciones a todos!",
+          date: "Abril 2026"
         },
         {
-          tag: "Financiamiento",
-          title: "Financiamiento del nuevo local del Suiza asegurado con fondos del FONCOR",
-          desc: "Gracias a la decisión del Gobierno Regional y sus pares nacionales, se destinó el presupuesto del Fondo de Compensación Regional (FONCOR) para financiar el equipamiento y maquinaria pesada internacional del instituto.",
-          date: "21 de Octubre de 2022",
-          image: "https://cdn.www.gob.pe/uploads/document/file/3782461/28.png.png",
-          link: "https://www.gob.pe/institucion/regionucayali/noticias/662991-convocan-a-licitacion-publica-nuevo-instituto-tecnologico-suiza-por-mas-de-200-millones-de-soles"
-        },
-        {
-          tag: "Historia",
-          title: "La defensa de nuestro campus: Historia de la lucha por la seguridad y el cerco perimétrico",
-          desc: "En 2011, alumnos y docentes se movilizaron en defensa del territorio forestal del instituto tras una invasión vandálica que afectó áreas de cedro y copaiba, iniciando las gestiones para el futuro cerco moderno.",
-          date: "06 de Agosto de 2011",
-          image: "https://f.rpp-noticias.io/2011/08/06/573071.jpg?width=1020&quality=80",
-          link: "https://rpp.pe/peru/actualidad/pucallpa-intervienen-a-25-personas-por-invadir-terrenos-de-instituto-noticia-391785"
+          tag: "Simulacro",
+          title: "Resultados del 1° Examen Simulacro CEPRETEC Suiza 2026",
+          desc: "Publicación de puntajes del primer simulacro del centro de preparación pre-tecnológico. Revisa tu ubicación y prepárate para el examen oficial.",
+          date: "Marzo 2026"
         }
       ]
     },
@@ -317,40 +303,26 @@ export const translations = {
     },
     news: {
       title: "Institutional News and Events",
-      subtitle: "Find out about the latest activities, infrastructure progress, and news of our institution.",
+      subtitle: "Find out about the latest activities, academic achievements, and publications of our institution.",
       readMore: "Read Article",
       items: [
         {
-          tag: "Public Tender",
-          title: "Public tender called for the new IESTP Suiza campus for over S/ 201 million",
-          desc: "The Regional Government of Ucayali called for tenders for the construction of our new technological campus, making it the largest investment in higher education in the history of the region.",
-          date: "October 21, 2022",
-          image: "https://cdn.www.gob.pe/uploads/document/file/3782458/standard_5.png.png",
-          link: "https://www.gob.pe/institucion/regionucayali/noticias/662991-convocan-a-licitacion-publica-nuevo-instituto-tecnologico-suiza-por-mas-de-200-millones-de-soles"
+          tag: "Scientific Journal",
+          title: "Latin American Journal of Technological Innovation (RELITES) - Vol. 1 2026",
+          desc: "Publication of scientific research led by teachers and students of IESTP Switzerland in artificial intelligence applied to agriculture and mechatronics.",
+          date: "May 2026"
         },
         {
-          tag: "Infrastructure",
-          title: "New Suiza infrastructure will feature 22 modern modules and specialized labs",
-          desc: "The blueprints layout includes high-tech specialized laboratories for Civil Construction, Automotive Mechanics, Electrotechnics, Forestry, and Agriculture.",
-          date: "October 21, 2022",
-          image: "https://cdn.www.gob.pe/uploads/document/file/3782459/7.png.png",
-          link: "https://www.gob.pe/institucion/regionucayali/noticias/662991-convocan-a-licitacion-publica-nuevo-instituto-tecnologico-suiza-por-mas-de-200-millones-de-soles"
+          tag: "Admission 2026",
+          title: "Official Results of the Regular Admission Exam 2026",
+          desc: "The list of new students who will be part of the academic excellence of our institute is now available. Congratulations to everyone!",
+          date: "April 2026"
         },
         {
-          tag: "Funding",
-          title: "Funding for the new Suiza tech campus secured through FONCOR funds",
-          desc: "Thanks to the political decision of the Regional Government, the Regional Compensation Fund (FONCOR) budget was allocated to fund international-standard machinery and technical workshops.",
-          date: "October 21, 2022",
-          image: "https://cdn.www.gob.pe/uploads/document/file/3782461/28.png.png",
-          link: "https://www.gob.pe/institucion/regionucayali/noticias/662991-convocan-a-licitacion-publica-nuevo-instituto-tecnologico-suiza-por-mas-de-200-millones-de-soles"
-        },
-        {
-          tag: "History",
-          title: "Defending our campus: History of the struggle for security and perimeter fencing",
-          desc: "In 2011, students and faculty mobilized to defend the institute's forest land after a vandalism invasion affected cedar and copaiba areas, starting the efforts for the future modern fence.",
-          date: "August 6, 2011",
-          image: "https://f.rpp-noticias.io/2011/08/06/573071.jpg?width=1020&quality=80",
-          link: "https://rpp.pe/peru/actualidad/pucallpa-intervienen-a-25-personas-por-invadir-terrenos-de-instituto-noticia-391785"
+          tag: "Mock Exam",
+          title: "Results of the 1st CEPRETEC Switzerland Mock Exam 2026",
+          desc: "Publication of scores for the first mock exam of the pre-technological preparation center. Check your ranking and get ready for the official exam.",
+          date: "March 2026"
         }
       ]
     },
@@ -505,36 +477,22 @@ export const translations = {
       readMore: "Ointi",
       items: [
         {
-          tag: "Tee Licitación",
-          title: "S/ 201 millones tee IESTP Suiza xobo benibo convocá licitación",
-          desc: "Gobierno Regional de Ucayali teebo convocó licitación Suiza xobo benibo, axonti educación superior Ucayali jemeax xobo yakiti.",
-          date: "Octubre 21, 2022",
-          image: "https://cdn.www.gob.pe/uploads/document/file/3782458/standard_5.png.png",
-          link: "https://www.gob.pe/institucion/regionucayali/noticias/662991-convocan-a-licitacion-publica-nuevo-instituto-tecnologico-suiza-por-mas-de-200-millones-de-soles"
+          tag: "Revista RELITES",
+          title: "Revista Latinoamericana de Innovación Tecnológica (RELITES) - Vol. 1 2026",
+          desc: "Mestrotibo y axoni jonibo Suiza jomeax investigación artificial y agropecuaria quinona.",
+          date: "Mayo 2026"
         },
         {
-          tag: "Xobo Moduli",
-          title: "Suiza moduli 22 xobo benibo y laboratorios tapina moderni",
-          desc: "Tee axonti y laboratorios specialized Construcción Civil, Mecánica Automotriz, Electrotecnia, Recursos Forestales y Agropecuaria, Suiza axonti jonibopish.",
-          date: "Octubre 21, 2022",
-          image: "https://cdn.www.gob.pe/uploads/document/file/3782459/7.png.png",
-          link: "https://www.gob.pe/institucion/regionucayali/noticias/662991-convocan-a-licitacion-publica-nuevo-instituto-tecnologico-suiza-por-mas-de-200-millones-de-soles"
+          tag: "Admission 2026",
+          title: "Resultados Oficiales del Examen de Admisión Regular 2026",
+          desc: "Moa list bicanai jejeibo Suiza jomeax. ¡Irake jatibi!",
+          date: "Abril 2026"
         },
         {
-          tag: "Coriqui FONCOR",
-          title: "FONCOR coriqui Suiza xobo benibo tech moderni asegurado",
-          desc: "Gobernador regional Ángel Gutiérrez teebo FONCOR coriqui Suiza axonti maquinaria y equipamiento nacionpish.",
-          date: "Octubre 21, 2022",
-          image: "https://cdn.www.gob.pe/uploads/document/file/3782461/28.png.png",
-          link: "https://www.gob.pe/institucion/regionucayali/noticias/662991-convocan-a-licitacion-publica-nuevo-instituto-tecnologico-suiza-por-mas-de-200-millones-de-soles"
-        },
-        {
-          tag: "Historia",
-          title: "Non jeme coinox: IESTP Suiza jeme defendá 2011",
-          desc: "2011 baritia, axoni jonibo y mestrotibo defendá IESTP Suiza jeme forestal invasionpish, tapiti cerco perimetral moderni y teti.",
-          date: "Agosto 6, 2011",
-          image: "https://f.rpp-noticias.io/2011/08/06/573071.jpg?width=1020&quality=80",
-          link: "https://rpp.pe/peru/actualidad/pucallpa-intervienen-a-25-personas-por-invadir-terrenos-de-instituto-noticia-391785"
+          tag: "Simulacro",
+          title: "Resultados del 1° Examen Simulacro CEPRETEC Suiza 2026",
+          desc: "Cepretec simulacro results ointi ramano exam.",
+          date: "Marzo 2026"
         }
       ]
     },
