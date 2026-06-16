@@ -1,19 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import careerImages from '../assets/career_images_map.json';
 
 const images = [
-  { src: careerImages.admin[0], alt: 'Administración de Empresas' },
-  { src: careerImages.agro[0], alt: 'Producción Agropecuaria' },
-  { src: careerImages.asist[0], alt: 'Asistencia Administrativa' },
-  { src: careerImages.civil[0], alt: 'Construcción Civil' },
-  { src: careerImages.cont[0], alt: 'Contabilidad' },
-  { src: careerImages.elec[0], alt: 'Electricidad Industrial' },
-  { src: careerImages.enfer[0], alt: 'Enfermería Técnica' },
-  { src: careerImages.forest[0], alt: 'Manejo Forestal' },
-  { src: careerImages.meca[0], alt: 'Mecatrónica Automotriz' },
-  { src: careerImages.sys[0], alt: 'Desarrollo de Sistemas de Información' },
-  { src: careerImages.tur[0], alt: 'Administración de Operaciones Turísticas' },
+  { src: '/fontis.jpg', alt: 'Fondo IESTP Suiza 1' },
+  { src: '/frontis_2.jpg', alt: 'Fondo IESTP Suiza 2' },
+  { src: '/campus.jpg', alt: 'Fondo IESTP Suiza 3' },
 ];
 
 export default function Carousel({ autoPlayInterval = 5000, children }) {
@@ -41,7 +32,7 @@ export default function Carousel({ autoPlayInterval = 5000, children }) {
   }, [next, autoPlayInterval]);
 
   return (
-    <div className="relative w-full overflow-hidden aspect-[3/2] md:aspect-auto">
+    <div className="relative w-full overflow-hidden">
       {/* Background images with crossfade */}
       <div className="absolute inset-0">
         {images.map((img, idx) => (
