@@ -8,6 +8,7 @@ import Admission from './pages/Admission';
 import AboutUs from './pages/AboutUs';
 import NewsPage from './pages/NewsPage';
 import ContactForm from './components/ContactForm';
+import VirtualAssistant from './components/VirtualAssistant';
 import { translations } from './translations';
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
         </main>
 
         <Footer t={t} />
+        <VirtualAssistant />
       </div>
     </Router>
   );
