@@ -6,7 +6,10 @@ export const translations = {
       admission: "Admisión 2026",
       about: "Nosotros",
       news: "Noticias",
-      contact: "Escríbenos"
+      contact: "Escríbenos",
+      research: "Investigación",
+      library: "Biblioteca",
+      transparency: "Transparencia"
     },
     hero: {
       welcome: "Bienvenidos al Instituto de Educación Superior Tecnológico Público Suiza",
@@ -176,7 +179,10 @@ export const translations = {
       admission: "Admission 2026",
       about: "About Us",
       news: "News",
-      contact: "Contact Us"
+      contact: "Contact Us",
+      research: "Research",
+      library: "Library",
+      transparency: "Transparency"
     },
     hero: {
       welcome: "Welcome to the Switzerland Public Higher Technological Institute",
@@ -346,7 +352,10 @@ export const translations = {
       admission: "Ikanti 2026",
       about: "Noa",
       news: "Joibo",
-      contact: "Wishati"
+      contact: "Wishati",
+      research: "Jakon Ointi",
+      library: "Jatibi Shinanbo",
+      transparency: "Jakon Benati"
     },
     hero: {
       welcome: "Jakon yatan, non joibo IESTP Suiza",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -7,15 +7,76 @@ import Careers from './pages/Careers';
 import Admission from './pages/Admission';
 import AboutUs from './pages/AboutUs';
 import NewsPage from './pages/NewsPage';
+import Research from './pages/Research';
+import Library from './pages/Library';
+import Transparency from './pages/Transparency';
+import PreInscription from './pages/PreInscription';
+import MallaCurricular from './pages/MallaCurricular';
+import DocentesPage from './pages/DocentesPage';
+import LaboratoriosPage from './pages/LaboratoriosPage';
+import ConveniosPage from './pages/ConveniosPage';
+import PerfilEgresado from './pages/PerfilEgresado';
+import ModalidadesPage from './pages/ModalidadesPage';
+import Cronograma from './pages/Cronograma';
+import Costos from './pages/Costos';
+import Requisitos from './pages/Requisitos';
+import Resultados from './pages/Resultados';
 import ContactForm from './components/ContactForm';
 import VirtualAssistant from './components/VirtualAssistant';
 import { translations } from './translations';
+
+function AnimatedRoutes({ t }) {
+  const location = useLocation();
+  const [displayLocation, setDisplayLocation] = useState(location);
+  const [transitionStage, setTransitionStage] = useState('enter');
+
+  useEffect(() => {
+    if (location.pathname !== displayLocation.pathname) {
+      setTransitionStage('exit');
+      const timer = setTimeout(() => {
+        setDisplayLocation(location);
+        setTransitionStage('enter');
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [location, displayLocation]);
+
+  return (
+    <div className={`${transitionStage === 'enter' ? 'page-enter' : 'opacity-0 transition-opacity duration-200'}`}>
+      <Routes location={displayLocation}>
+        <Route path="/" element={<Home t={t} />} />
+        <Route path="/careers" element={<Careers t={t} />} />
+        <Route path="/admission" element={<Admission t={t} />} />
+        <Route path="/about" element={<AboutUs t={t} />} />
+        <Route path="/research" element={<Research t={t} />} />
+        <Route path="/library" element={<Library t={t} />} />
+        <Route path="/transparency" element={<Transparency t={t} />} />
+        <Route path="/news" element={<NewsPage t={t} />} />
+        <Route path="/preinscripcion" element={<PreInscription />} />
+        <Route path="/malla-curricular" element={<MallaCurricular />} />
+        <Route path="/docentes" element={<DocentesPage />} />
+        <Route path="/laboratorios" element={<LaboratoriosPage />} />
+        <Route path="/convenios" element={<ConveniosPage />} />
+        <Route path="/perfil-egresado" element={<PerfilEgresado />} />
+        <Route path="/modalidades" element={<ModalidadesPage />} />
+        <Route path="/cronograma" element={<Cronograma />} />
+        <Route path="/costos" element={<Costos />} />
+        <Route path="/requisitos" element={<Requisitos />} />
+        <Route path="/resultados" element={<Resultados />} />
+        <Route path="/contact" element={
+          <div className="py-12 px-4 flex justify-center items-center">
+            <ContactForm t={t} />
+          </div>
+        } />
+      </Routes>
+    </div>
+  );
+}
 
 function App() {
   const [lang, setLang] = useState('es');
   const [darkMode, setDarkMode] = useState(false);
 
-  // Sync theme class with html element
   useEffect(() => {
     const root = window.document.documentElement;
     if (darkMode) {
@@ -30,27 +91,14 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col transition-colors duration-300 bg-bg-general dark:bg-dark-bg text-slate-text dark:text-dark-text pb-6 relative">
-        {/* Global floating background orbs */}
         <div className="fixed top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-soft-pulse pointer-events-none" />
         <div className="fixed bottom-1/3 right-0 w-80 h-80 bg-secondary/8 rounded-full blur-3xl animate-soft-pulse pointer-events-none" style={{ animationDelay: '4s' }} />
         <div className="fixed top-2/3 left-1/4 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl animate-float-slow pointer-events-none" />
 
         <Navbar lang={lang} setLang={setLang} darkMode={darkMode} setDarkMode={setDarkMode} t={t} />
         
-        {/* Main Content wrapper */}
         <main className="flex-1 w-full mt-4">
-          <Routes>
-            <Route path="/" element={<Home t={t} />} />
-            <Route path="/careers" element={<Careers t={t} />} />
-            <Route path="/admission" element={<Admission t={t} />} />
-            <Route path="/about" element={<AboutUs t={t} />} />
-            <Route path="/news" element={<NewsPage t={t} />} />
-            <Route path="/contact" element={
-              <div className="py-12 px-4 flex justify-center items-center">
-                <ContactForm t={t} />
-              </div>
-            } />
-          </Routes>
+          <AnimatedRoutes t={t} />
         </main>
 
         <Footer t={t} />

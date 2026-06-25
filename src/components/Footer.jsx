@@ -74,30 +74,30 @@ export default function Footer({ t }) {
             </ul>
           </div>
 
-          {/* Section 3: Careers Sample */}
+          {/* Section 3: Accesos Directos */}
           <div>
             <h3 className="font-semibold text-sm text-slate-text dark:text-white uppercase tracking-wider mb-4">
-              {t.nav.careers}
+              Accesos Directos
             </h3>
             <ul className="flex flex-col gap-2.5 text-sm text-slate-text/75 dark:text-dark-text/75">
               <li>
-                <Link to="/careers" className="hover:text-primary dark:hover:text-secondary transition-colors">
-                  Desarrollo de Sistemas
+                <Link to="/research" className="hover:text-primary dark:hover:text-secondary transition-colors">
+                  {t.nav.research}
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-primary dark:hover:text-secondary transition-colors">
-                  Enfermería Técnica
+                <Link to="/library" className="hover:text-primary dark:hover:text-secondary transition-colors">
+                  {t.nav.library}
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-primary dark:hover:text-secondary transition-colors">
-                  Mecatrónica Automotriz
+                <Link to="/transparency" className="hover:text-primary dark:hover:text-secondary transition-colors">
+                  {t.nav.transparency}
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-primary dark:hover:text-secondary transition-colors">
-                  Manejo Forestal
+                <Link to="/news" className="hover:text-primary dark:hover:text-secondary transition-colors">
+                  {t.nav.news}
                 </Link>
               </li>
             </ul>
@@ -130,8 +130,9 @@ export default function Footer({ t }) {
             © {new Date().getFullYear()} IESTP SUIZA Pucallpa. Todos los derechos reservados. Licenciado por MINEDU.
           </div>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-primary transition-colors">Política de Privacidad</a>
-            <a href="#" className="hover:text-primary transition-colors">Transparencia Pública</a>
+            <Link to="/transparency" className="hover:text-primary transition-colors">Transparencia</Link>
+            <Link to="/library" className="hover:text-primary transition-colors">Biblioteca</Link>
+            <Link to="/contact" className="hover:text-primary transition-colors">Contacto</Link>
             <a href="#" className="hover:text-primary transition-colors">Aula Virtual</a>
           </div>
         </div>

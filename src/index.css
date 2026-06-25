@@ -225,3 +225,115 @@ body {
 .animate-fade-in {
   animation: fade-in 0.2s ease-out forwards;
 }
+
+/* Floating bot button */
+@keyframes float-bot {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float-bot {
+  animation: float-bot 3s ease-in-out infinite;
+}
+
+/* Waving hand */
+@keyframes wave-hand {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-15deg); }
+  40% { transform: rotate(10deg); }
+  60% { transform: rotate(-15deg); }
+  80% { transform: rotate(10deg); }
+}
+
+.animate-wave-hand {
+  animation: wave-hand 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Confetti fall */
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: translateY(120px) rotate(720deg) scale(0); opacity: 0; }
+}
+
+/* Bounce in for new messages */
+@keyframes bounce-in {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  50% { opacity: 1; transform: translateY(-4px) scale(1.01); }
+  70% { transform: translateY(2px) scale(0.99); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Wave animation for robot SVG hand */
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(5deg); }
+  75% { transform: rotate(-10deg); }
+}
+
+/* Shimmer effect for buttons */
+@keyframes shimmer {
+  0% { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(200%) skewX(-12deg); }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.2s ease-in-out;
+}
+
+@keyframes shimmer-fast {
+  0% { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(200%) skewX(-12deg); }
+}
+
+.animate-shimmer-fast {
+  animation: shimmer-fast 0.8s ease-in-out;
+}
+
+/* Dropdown staircase animation */
+@keyframes dropdown-enter {
+  0% { opacity: 0; transform: scaleY(0.92) translateY(-6px); }
+  100% { opacity: 1; transform: scaleY(1) translateY(0); }
+}
+
+@keyframes dropdown-item-stair {
+  0% { opacity: 0; transform: translateY(20px) translateX(-16px) scale(0.95); }
+  60% { opacity: 1; transform: translateY(-2px) translateX(2px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+}
+
+/* Scroll reveal animations */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-scale { opacity: 0; transform: scale(0.92); transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+/* Page transition */
+@keyframes page-enter {
+  0% { opacity: 0; transform: translateY(12px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.page-enter { animation: page-enter 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards; }
+
+/* Back to top */
+@keyframes back-top-enter {
+  0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.back-top-enter { animation: back-top-enter 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+
+/* Mobile submenu slide */
+@keyframes submenu-slide {
+  0% { opacity: 0; max-height: 0; }
+  100% { opacity: 1; max-height: 300px; }
+}
+.submenu-slide { animation: submenu-slide 0.3s ease-out forwards; overflow: hidden; }
